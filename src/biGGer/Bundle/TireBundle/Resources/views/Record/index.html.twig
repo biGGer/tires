@@ -1,0 +1,414 @@
+{% extends "TireBundle::template.html.twig" %}
+
+{% block body -%}
+<ul class="nav nav-tabs" style="margin-top: 80px;">
+    <li {% if all == 0 %}class="active"{% endif %}>
+      <a href="/record">Актуальные записи</a> 
+    </li>
+    <li {% if all == 1 %}class="active"{% endif %}>
+      <a href="/record/all">Все записи</a> 
+    </li>
+    <li>
+      <a href="{{ path('record_new') }}"><strong>Добавить/изменить запись</strong></a> 
+    </li>
+  </ul>
+<p>
+</p>
+  <form>
+    <a id="edit-row" class="btn pull-left disabled" style="margin-right: 10px;">Редактировать запись</a> 
+    <a id="delete-row" class="btn pull-left disabled" style="margin-right: 10px;">Удалить</a>
+
+    <ul class="nav nav-pills">
+        <li class="dropdown">
+            <a class="dropdown-toggle disabled" id="docs_contract" role="button" href="#">Печать договора</a>
+        </li>
+
+        <li class="dropdown">
+            <a class="dropdown-toggle disabled" id="docs_act_in" role="button" href="#">Печать акта приемки</a>
+        </li>
+
+        <li class="dropdown">
+            <a class="dropdown-toggle disabled" id="docs_act_out" role="button" href="#">Печать акта выдачи</a>
+        </li>
+
+      <li class="dropdown">
+          <a class="dropdown-toggle disabled" id="docs_stickers" role="button" href="#">Печать наклеек</a>
+      </li>
+        </ul>
+  </form>
+
+    <input id="search" type="text" class="pull-right input-large" placeholder="Поиск..." style="margin-right: 10px;"> 
+    <style type="text/css">
+    span.highlight {
+        color: #FFFFFF;
+        padding:0px 12px 2px;
+        background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#0000CD), to(#DBDBFF));
+        background: -webkit-linear-gradient(left, #0000CD, #DBDBFF);
+        background: -moz-linear-gradient(left, #0000CD, #DBDBFF);
+        background: -o-linear-gradient(left, #0000CD, #DBDBFF);
+        background: -ms-linear-gradient(left, #0000CD, #DBDBFF);
+        background: linear-gradient(left, #0000CD, #DBDBFF);
+        background-color: #0000CD;
+        -webkit-border-radius: 15px;
+        -moz-border-radius: 15px;
+        -o-border-radius: 15px;
+        -ms-border-radius: 15px;
+        border-radius: 15px;
+    } 
+    </style>
+<a id="docs_stickers" class="btn pull-left" style="margin-right: 10px;">Экспорт в Excel<div style="position: relative;margin-top: -25px; height: 25px;"><embed id="ZeroClipboard_TableToolsMovie_1" src="/media/swf/copy_csv_xls_pdf.swf" loop="false" menu="false" quality="best" bgcolor="#ffffff" width="160" height="26" name="ZeroClipboard_TableToolsMovie_1" align="middle" allowscriptaccess="always" allowfullscreen="false" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer" flashvars="id=1&amp;width=0&amp;height=0" wmode="transparent"></div></a>
+
+    <table id="table" class="records-list table table-condensed table-bordered table-hover" style="font-size: 11px; margin-top: 20px;">
+        <thead>
+            <tr>
+                <th></th>
+                <th>№</th>
+                <th>Начало</th>
+                <th>Окончание</th>
+                <th>ФИО</th>
+                <th>Производитель</th>
+                <th>Марка</th>
+                <th>Размер</th>
+                <th>Стеллаж</th>
+                <th>Полка</th>
+                <th>Ячейка</th>
+                <th>Штук</th>
+                <th>Телефон</th>
+                <th>Статус</th>
+                <!-- <th>Действия</th> -->
+            </tr>
+        </thead>
+        <tbody>
+        {% for entity in entities %}
+            <tr>
+                <td>
+                    <input data-id="{{ entity.id }}" class="select-row" type="checkbox" value="true" name="checkbox"> 
+                </td>
+                <td>{{ entity.id }}</td>
+                <td>{% if entity.dateStart %}{{ entity.dateStart|date('d-m-Y') }}{% endif %}</td>
+                <td>{% if entity.dateEnd %}{{ entity.dateEnd|date('d-m-Y') }}{% endif %}</td>
+                <td>{{ entity.name }}</td>
+                <td>{{ entity.manufacturer }}</td>
+                <td>{{ entity.model }}</td>
+                <td>{{ entity.size }}</td>
+                <td>{{ entity.rack }}</td>
+                <td>{{ entity.shelf }}</td>
+                <td>{{ entity.cell }}</td>
+                <td>{{ entity.quantity }}</td>
+                <td>{{ entity.phone }}</td>
+                <td>{{ entity.status }}</td>
+                <!-- <td>
+                 <ul>
+                    <li>
+                        <a href="{{ path('record_show', { 'id': entity.id }) }}">show</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('record_edit', { 'id': entity.id }) }}">edit</a>
+                    </li>
+                </ul> 
+                </td>-->
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+<script type="text/javascript">
+    $.fn.highlight = function (b, k) {
+        function l() {
+            $("." + c.className).each(function (c, e) {
+                var a = e.previousSibling,
+                    d = e.nextSibling,
+                    b = $(e),
+                    f = "";
+                a && 3 == a.nodeType && (f += a.data, a.parentNode.removeChild(a));
+                e.firstChild && (f += e.firstChild.data);
+                d && 3 == d.nodeType && (f += d.data, d.parentNode.removeChild(d));
+                b.replaceWith(f)
+            })
+        }
+
+        function h(b) {
+            b = b.childNodes;
+            for (var e = b.length, a; a = b[--e];)
+                if (3 == a.nodeType) {
+                    if (!/^\s+$/.test(a.data)) {
+                        var d = a.data,
+                            d = d.replace(m, '<span class="' + c.className + '">$1</span>');
+                        $(a).replaceWith(d)
+                    }
+                } else 1 == a.nodeType && a.childNodes && (!/(script|style)/i.test(a.tagName) && a.className != c.className) && h(a)
+        }
+        var c = {
+            split: "\\s+",
+            className: "highlight",
+            caseSensitive: !1,
+            strictly: !1,
+            remove: !0
+        }, c = $.extend(c, k);
+        c.remove && l();
+        b = $.trim(b);
+        var g = c.strictly ? "" : "\\S*",
+            m = RegExp("(" + g + b.replace(RegExp(c.split, "g"), g + "|" + g) + g + ")", (c.caseSensitive ? "" : "i") + "g");
+        return this.each(function () {
+            b && h(this)
+        })
+    };
+
+    $('#search').on('input',
+        function () {
+            $("#table").highlight($(this).val(), {})
+        }
+    );
+</script>
+
+  <div id="delete-modal" class="modal hide">
+    <div class="modal-header">
+        <a href="#" data-dismiss="modal" aria-hidden="true" class="close">×</a>
+         <h3>Удаление</h3>
+    </div>
+    <div class="modal-body">
+        <p>Вы действительно желаете удалить запись?</p>
+    </div>
+    <div class="modal-footer">
+      <a href="#" id="btnYes" class="btn btn-danger">Да</a>
+      <a href="#" data-dismiss="modal" aria-hidden="true" class="btn">Нет</a>
+    </div>
+  </div>
+  <div id="select-row-modal" class="modal hide">
+    <div class="modal-header">
+        <a href="#" data-dismiss="modal" aria-hidden="true" class="close">×</a>
+         <h3>Уведомление</h3>
+    </div>
+    <div class="modal-body">
+        <p>Выберите поклажедателя</p>
+    </div>
+    <div class="modal-footer">
+      <a href="#" data-dismiss="modal" aria-hidden="true" class="btn">ОК</a>
+    </div>
+  </div>
+    <div id="select-row-modal-many" class="modal hide">
+        <div class="modal-header">
+            <a href="#" data-dismiss="modal" aria-hidden="true" class="close">×</a>
+            <h3>Уведомление</h3>
+        </div>
+        <div class="modal-body">
+            <p>Выберите ОДНОГО поклажедателя</p>
+        </div>
+        <div class="modal-footer">
+            <a href="#" data-dismiss="modal" aria-hidden="true" class="btn">ОК</a>
+        </div>
+    </div>
+    <div id="download-document"></div>
+
+
+<script>
+  $(function() {
+    $(".select-row").change(function() {
+        if ($(this).is(':checked')) {
+            if ($('.select-row:checked').length == 1) {
+                $("#edit-row")
+                    .removeClass('disabled');
+                $("#add-client-row").removeClass('disabled');
+                $("#docs_contract").removeClass('disabled');
+                $("#docs_act_in").removeClass('disabled');
+                $("#docs_act_out").removeClass('disabled');
+                $("#docs_stickers").removeClass('disabled');
+                $('.dropdown-toggle').removeClass('disabled');
+
+            } else {
+                $("#edit-row").addClass('disabled');
+                $("#add-client-row").addClass('disabled');
+                $("#docs_contract").addClass('disabled');
+                $("#docs_act_in").addClass('disabled');
+                $("#docs_act_out").addClass('disabled');
+                $("#docs_stickers").addClass('disabled');
+                $('.dropdown-toggle').addClass('disabled');
+            }
+
+            $("#delete-row").removeClass('disabled');
+        } else {
+            if ($('.select-row:checked').length == 1) {
+                $("#edit-row").removeClass('disabled');
+                $("#add-client-row").removeClass('disabled');
+                $("#docs_contract").removeClass('disabled');
+                $("#docs_act_in").removeClass('disabled');
+                $("#docs_act_out").removeClass('disabled');
+                $("#docs_stickers").removeClass('disabled');
+                $('.dropdown-toggle').removeClass('disabled');
+            } else {
+                $("#edit-row").addClass('disabled');
+                $("#add-client-row").addClass('disabled');
+                $("#docs_contract").addClass('disabled');
+                $("#docs_act_in").addClass('disabled');
+                $("#docs_act_out").addClass('disabled');
+                $("#docs_stickers").addClass('disabled');
+                $('.dropdown-toggle').addClass('disabled');
+            }
+
+            if ($('.select-row:checked').length == 0) {
+                $("#delete-row").addClass('disabled');
+                $("#add-client-row").addClass('disabled');
+                $("#docs_contract").addClass('disabled');
+                $("#docs_act_in").addClass('disabled');
+                $("#docs_act_out").addClass('disabled');
+                $("#docs_stickers").addClass('disabled');
+                $('.dropdown-toggle').addClass('disabled');
+            }
+        }
+    });
+
+    $("#edit-row").click(function(e) {
+        e.preventDefault();
+//        if ($(this).hasClass('disabled')) return;
+
+        if ($('.select-row:checked').length == 1) {
+          location.href = '/record/' + $('.select-row:checked').data('id') + '/edit';
+        } else {
+            if ($('.select-row:checked').length > 1) {
+                $('#select-row-modal-many').modal('show');
+            }
+            if ($('.select-row:checked').length == 0){
+                $('#select-row-modal').modal('show');
+            }
+        }
+    });
+
+    $("#delete-row").click(function(e) {
+        e.preventDefault();
+//        if ($(this).hasClass('disabled')) return;
+
+        if ($('.select-row:checked').length > 0) {
+
+            $('#delete-modal').modal('show');
+        } else {
+          $('#select-row-modal').modal('show');
+        }
+    });
+
+    $('#btnYes').click(function(e) {
+        e.preventDefault();
+
+        $('#delete-modal').modal('hide');
+
+        var ids = new Array();
+        $('.select-row:checked').each(function() {
+            ids.push($(this).data('id'));
+        });
+
+        location.href = '/record/delete?ids=' + ids.join(',');
+    });
+
+    $("#add-client-row").click(function() {
+//        if ($(this).hasClass('disabled')) return;
+
+        if ($('.select-row:checked').length == 1) {
+            location.href = '/record/new/' + $('.select-row:checked').data('id');
+        } else {
+            if ($('.select-row:checked').length > 1) {
+                $('#select-row-modal-many').modal('show');
+            }
+            if ($('.select-row:checked').length == 0){
+                $('#select-row-modal').modal('show');
+            }
+        }
+    });
+
+    $('.dropdown-toggle').click(function() {
+        if ($('.select-row:checked').length > 1) {
+            $('#select-row-modal-many').modal('show');
+        }
+        if ($('.select-row:checked').length == 0){
+            $('#select-row-modal').modal('show');
+        }
+    });
+
+    $("#docs_contract").click(function() {
+        if ($(this).hasClass('disabled')) return;
+
+        if ($('.select-row:checked').length == 1) {
+          window.open('/modal/contract/' + $('.select-row:checked').data('id'), 'Договор на хранение',
+         'width=1000, height=700,menubar=no,location=no,resizable=yes,scrollbars=yes,status=no');
+        } else {
+            $('#select-row-modal').modal('show');
+        }
+    });
+
+    $("#docs_act_in").click(function() {
+        if ($(this).hasClass('disabled')) return;
+
+        if ($('.select-row:checked').length == 1) {
+          window.open('/modal/actIn/' + $('.select-row:checked').data('id'), 'Акт приемки на хранение',
+         'width=1000, height=700,menubar=no,location=no,resizable=yes,scrollbars=yes,status=no');
+        } else {
+            $('#select-row-modal').modal('show');
+        }
+    });
+
+    $("#docs_act_out").click(function() {
+        if ($(this).hasClass('disabled')) return;
+
+        if ($('.select-row:checked').length == 1) {
+          window.open('/modal/actOut/' + $('.select-row:checked').data('id'), 'Акт выдачи с хранения',
+         'width=1000, height=700,menubar=no,location=no,resizable=yes,scrollbars=yes,status=no');
+        } else {
+            $('#select-row-modal').modal('show');
+        }
+    });
+
+    $("#docs_stickers").click(function() {
+        if ($(this).hasClass('disabled')) return;
+
+        if ($('.select-row:checked').length == 1) {
+          window.open('/modal/stickers/' + $('.select-row:checked').data('id'), 'Наклейки на машины',
+         'width=1000, height=700,menubar=no,location=no,resizable=yes,scrollbars=yes,status=no');
+        } else {
+            $('#select-row-modal').modal('show');
+        }
+    });
+  });
+
+  $(document).ready( function () {
+  var oTable = $('#table').dataTable( {
+    "sDom": "<'row-fluid'<'span6'T><'span6'f>r>t<'row-fluid'<'span6'i><'span6'p>>",
+    "oLanguage": {
+      "sProcessing":   "Подождите...",
+      "sLengthMenu":   "Показать _MENU_ записей",
+      "sZeroRecords":  "Записи отсутствуют.",
+      "sInfo":         "Записи с _START_ до _END_ из _TOTAL_ записей",
+      "sInfoEmpty":    "Записи с 0 до 0 из 0 записей",
+      "sInfoFiltered": "(отфильтровано из _MAX_ записей)",
+      "sInfoPostFix":  "",
+      "sSearch":       "Поиск:",
+      "sUrl":          "",
+      "oPaginate": {
+          "sFirst": "Первая",
+          "sPrevious": "Предыдущая",
+          "sNext": "Следующая",
+          "sLast": "Последняя"
+      },
+      "oAria": {
+          "sSortAscending":  ": активировать для сортировки столбца по возрастанию",
+          "sSortDescending": ": активировать для сортировки столбцов по убыванию"
+      }
+    },
+    "oTableTools": {
+      "sSwfPath":        "/media/swf/copy_csv_xls_pdf.swf",
+      "aButtons": [
+        {
+          "sExtends":    "collection",
+          "sButtonText": 'Сохранить <span class="caret" />',
+          "aButtons":    [ "xls" ]
+        }
+      ]
+    },
+    "aaSorting": [[ 1, "asc" ]],
+  } );
+
+  $("#search").keyup(function() {
+    oTable.fnFilter( $(this).val() );
+  });
+} );
+  </script>
+  </div>
+
+{% endblock %}

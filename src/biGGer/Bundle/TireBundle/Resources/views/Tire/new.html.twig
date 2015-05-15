@@ -1,0 +1,31 @@
+{% extends "TireBundle::template.html.twig" %}
+
+{% block body -%}
+<ul class="nav nav-tabs" style="margin-top: 80px;">
+</ul>
+    <h4>Добавить марку шин</h4>
+
+    <form id="form" style="margin-top: 40px;" method="post" action="/tire/">
+    <p class="form-row">
+    <p>Производитель</p>
+        <select style="width: 285px;" class="input-xlarge" name="manufacturer" id="size">
+        
+        {% for manufacturer in manufacturers %}
+            <option value="{{ manufacturer.id }}" >{{ manufacturer.name }}</option>
+        {% endfor %}
+        </select>
+    </p>
+    	<input type="text" class="input-xlarge" name="name" placeholder="Марка шины" value=""> 
+    </p>
+    <p class="form-row">
+          <input type="submit" class="btn " style="width: 260px;" value="Сохранить запись"> 
+    </p>
+    </form>
+        <ul class="record_actions">
+    <li>
+        <a href="{{ path('tire') }}">
+            Обратно к списку
+        </a>
+    </li>
+</ul>
+{% endblock %}

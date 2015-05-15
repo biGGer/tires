@@ -1,0 +1,12 @@
+bi_g_ger_map:
+    resource: "@biGGerMapBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
+tire:
+    resource: "@TireBundle/Resources/config/routing.yml"
+    prefix:   /
+
+app:
+    resource: "@AppBundle/Controller/"
+    type:     annotation

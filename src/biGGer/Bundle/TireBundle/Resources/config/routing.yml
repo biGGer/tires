@@ -1,0 +1,26 @@
+tire_homepage:
+    path:     /hello/{name}
+    defaults: { _controller: TireBundle:Default:index }
+tire_record:
+    resource: "@TireBundle/Controller/RecordController.php"
+    type: annotation
+    prefix: /
+tire_modal:
+    resource: "@TireBundle/Controller/ModalController.php"
+    type: annotation
+    prefix: /
+tire_manufacturer:
+    resource: "@TireBundle/Controller/ManufacturerController.php"
+    type: annotation
+    prefix: /
+tire_tire:
+    resource: "@TireBundle/Controller/TireController.php"
+    type: annotation
+    prefix: /
+tire_settings:
+    resource: "@TireBundle/Controller/SettingsController.php"
+    type: annotation
+    prefix: /
+tire_landing:
+    path:     /
+    defaults: { _controller: TireBundle:Record:index }

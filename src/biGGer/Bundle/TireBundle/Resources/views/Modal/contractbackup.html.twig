@@ -1,0 +1,280 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+	<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=utf-8">
+	<TITLE></TITLE>
+	<META NAME="GENERATOR" CONTENT="LibreOffice 4.0.5.2 (Linux)">
+	<META NAME="AUTHOR" CONTENT="User">
+	<META NAME="CREATED" CONTENT="20130904;16110000">
+	<META NAME="CHANGEDBY" CONTENT="User">
+	<META NAME="CHANGED" CONTENT="20130906;9560000">
+	<STYLE TYPE="text/css">
+	<!--
+		@page { margin-right: 0.39in; margin-top: 0.79in; margin-bottom: 0.79in }
+		P { margin-bottom: 0.08in; direction: ltr; color: #000000; line-height: 115%; widows: 2; orphans: 2 }
+		P.western { font-family: "Calibri", sans-serif; font-size: 11pt; so-language: ru-RU }
+		P.cjk { font-family: "Times New Roman", serif; font-size: 11pt }
+		P.ctl { font-family: "Times New Roman", serif; font-size: 11pt; so-language: ar-SA }
+	-->
+	</STYLE>
+</HEAD>
+<BODY LANG="en-US" TEXT="#000000" DIR="LTR">
+<style>
+@media print {
+	#print-wrap {
+		display:none;
+	}
+}
+#print {
+	display: inline-block;
+	padding: 4px 12px;
+	margin-bottom: 0;
+	font-size: 14px;
+	line-height: 20px;
+	color: #333333;
+	text-align: center;
+	text-shadow: 0 1px 1px rgba(255, 255, 255, 0.75);
+	vertical-align: middle;
+	cursor: pointer;
+	background-color: #f5f5f5;
+	background-image: -moz-linear-gradient(top, #ffffff, #e6e6e6);
+	background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#ffffff), to(#e6e6e6));
+	background-image: -webkit-linear-gradient(top, #ffffff, #e6e6e6);
+	background-image: -o-linear-gradient(top, #ffffff, #e6e6e6);
+	background-image: linear-gradient(to bottom, #ffffff, #e6e6e6);
+	background-repeat: repeat-x;
+	border: 1px solid #cccccc;
+	border-color: #e6e6e6 #e6e6e6 #bfbfbf;
+	border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+	border-bottom-color: #b3b3b3;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffffff', endColorstr='#ffe6e6e6', GradientType=0);
+	filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
+	-webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
+	-moz-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
+	box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+#print:hover {
+	color: #333333;
+	text-decoration: none;
+	background-position: 0 -15px;
+	-webkit-transition: background-position 0.1s linear;
+	-moz-transition: background-position 0.1s linear;
+	-o-transition: background-position 0.1s linear;
+	transition: background-position 0.1s linear;
+	background-color: #e6e6e6;
+	outline: 0;
+}
+#print i {
+	display: inline-block;
+	height: 25px;
+	width: 34px;
+	background: url(/media/img/print.png) no-repeat;
+}
+#print:hover i {
+	background: url(/media/img/print_hover.png) no-repeat;
+}
+#print span {
+	position:relative;
+	top:-5px;
+}
+</style>
+<script src="/media/js/jquery.min.js"></script>
+<div id="print-wrap">
+<button id="print"><i></i><span>Печать</span></button>
+</div>
+<script>
+$(function() {
+
+	$("#print").click(function() {
+		window.print();
+	});
+})
+</script><p style="text-align:right;margin-top:0;"></p>
+<P LANG="ru-RU" CLASS="western" ALIGN=JUSTIFY STYLE="margin-bottom: 0in; line-height: 100%; font-size: 18px">
+<FONT FACE="TimesNewRoman,Bold">
+    <B>Договор ответственного хранения автошин от {{ entity.dateStart|date("d-m-Y") }} №</B><FONT STYLE="font-size: 18pt"><B>{{ entity.id }}</B></FONT>
+</FONT>
+</P>
+<p class="western" align="justify" style="text-indent: 1cm; margin-bottom: 0cm; line-height: 100%">
+    <font face="Times New Roman, serif" color="#000000">
+        {{ settings.keeper }}, именуемый в дальнейшем "Хранитель", с одной стороны, и {{ entity.name }}, паспорт {{ entity.passport }}, зарегистрирован по адресу {{ entity.adress }} именуемый в дальнейшем "Владелец", с другой стороны, заключили настоящий договор о нижеследующем:
+    </font>
+</p>
+
+
+<p class="western" align="justify" style="text-indent: 1cm; margin-bottom: 0cm; line-height: 100%">
+<font face="Times New Roman, serif" color="#000000">1.&nbsp;Предметом
+договора является неподлежащие
+лицензированию услуги по хранению
+автомобильных шин&nbsp;(колес),&nbsp;принадлежащих
+Владельцу.</font></p><p class="western" align="justify" style="text-indent: 1cm; margin-bottom: 0cm; line-height: 100%">
+<font face="Times New Roman, serif" color="#000000">2.&nbsp;Хранитель
+обязан по требованию Владельца возвратить
+принятые на хранение автошины (или
+колеса),&nbsp;в течение&nbsp;3-х суток с момента
+требования.&nbsp; Хранитель обязан
+возвратить Владельцу те самые автошины
+(колеса),&nbsp;которые были переданы на
+хранение.&nbsp; Хранитель обязуется принять
+для сохранности переданных ему автошин
+(колес)&nbsp;меры,&nbsp;обязательность которых
+предусмотрена законом или
+нормами&nbsp;(противопожарными,&nbsp;санитарными,&nbsp;охранными).&nbsp;
+Хранитель обязуется без согласия
+Владельца не использовать переданные
+на хранение автошины (колеса),&nbsp;а равно
+не предоставлять возможность пользоваться
+ими третьим лицам.</font></p><p class="western" align="justify" style="text-indent: 1cm; margin-bottom: 0cm; line-height: 100%">
+<font face="Times New Roman, serif" color="#000000">3.&nbsp;По
+истечении срока хранения,&nbsp;обусловленного
+настоящим Договором,&nbsp;Владелец или
+его доверенное лицо:&nbsp; обязан немедленно
+забрать переданные на хранение автошины
+(колеса).&nbsp; Владелец обязан выплатить
+Хранителю вознаграждение за хранение
+в размере и на условиях,&nbsp;предусмотренных
+настоящим Договором.</font></p><p class="western" align="justify" style="text-indent: 1cm; margin-bottom: 0cm; line-height: 100%">
+<font face="Times New Roman, serif" color="#000000">4.&nbsp;Хранитель
+отвечает за утрату,&nbsp;недостачу или
+повреждение автошин и дисков,&nbsp;если
+не докажет,&nbsp;что утрата,&nbsp;недостача
+или повреждение произошли вследствие
+непреодолимой силы.&nbsp; Убытки,&nbsp;причиненные
+Владельцу утратой,&nbsp;недостачей или
+повреждением автошин и дисков,&nbsp;возмещаются
+Хранителем в размере остаточной стоимости
+автошин и дисков.&nbsp; Хранитель вправе
+изменить место хранения,&nbsp;не уведомляя
+Владельца.&nbsp;Если по истечении срока
+хранения,&nbsp;находящиеся на хранении
+автошины и диски не взяты обратно
+Владельцем,&nbsp; он обязуется уплатить
+Хранителю вознаграждение согласно п.3
+договора.&nbsp; При неисполнении Владельцем
+своей обязанности взять автошины и
+диски обратно,&nbsp;в том числе при его
+уклонении от получения автошины (колес),&nbsp;
+Хранитель вправе,&nbsp;через&nbsp;60&nbsp;суток
+после завершения срока настоящего
+Договора,&nbsp;утилизировать автошины
+(колеса)&nbsp;Владельца без уведомления
+Владельца.&nbsp; Остаточная стоимость
+автошин (колес)&nbsp;не выплачивается.</font></p><font face="Times New Roman, serif"><font face="Times New Roman, serif"><font face="Times New Roman, serif"><font face="Times New Roman, serif"><font face="Times New Roman, serif"><font face="Times New Roman, serif">
+          </font></font></font></font></font></font>          
+<p class="western" align="justify" style="text-indent: 1cm; margin-bottom: 0cm; line-height: 100%">
+    <font face="Times New Roman, serif" color="#000000">
+        Хранитель обязуется возвратить автошины (или колеса), переданные ему Владельцем в сохранности со склада Хранителя, находящемся по адресу {{ settings.address }}</font>
+</p>
+
+<p class="western" align="justify" style="text-indent: 1cm; margin-bottom: 0cm; line-height: 100%">
+    <font face="Times New Roman, serif" color="#000000">
+        Настоящий Договор составлен в 2-х экземплярах, по одному для каждой из сторон.
+        Настоящий Договор заключен по адресу {{ settings.address }}, сроком с {{ entity.dateStart|date("d-m-Y") }} по {{ entity.dateEnd|date("d-m-Y") }} и вступает в силу с момента заключения Договора.
+        Вознаграждение за хранение на весь период действия настоящего Договора составляет <span id='total-price' style="cursor: pointer;">______________________________________________</span><span id='total-price-edit' style="display: none;"><input type="text" id="edit-total-price" value="" style="width: 500px;"/><input type="button" id="save-total-price" value="сохранить"/></span>
+    </font>
+</p>
+<br>
+<P LANG="ru-RU" CLASS="western" ALIGN=CENTER STYLE="margin-bottom: 0.14in;margin-top:5px;">
+<FONT FACE="TimesNewRoman, Bold"><FONT SIZE=2 STYLE="font-size: 14px">
+        <B>АДРЕСА И РЕКВИЗИТЫ СТОРОН</B></FONT></FONT></P>
+<table>
+<tr>
+<td style="width:350px;">
+<P LANG="ru-RU" CLASS="western" ALIGN=JUSTIFY STYLE="margin-bottom: 0in; line-height: 100%">
+<FONT FACE="TimesNewRoman"><FONT SIZE=2 STYLE="font-size: 14px">Хранитель</FONT></FONT><FONT FACE="Times New Roman, serif"><FONT SIZE=2 STYLE="font-size: 14px">:</FONT></FONT><FONT FACE="TimesNewRoman"><FONT SIZE=2 STYLE="font-size: 14px"> {{ settings.keeper }}                                                                     
+</FONT></FONT></P>
+</td>
+<td>
+<P LANG="ru-RU" CLASS="western" ALIGN=JUSTIFY STYLE="margin-bottom: 0in; line-height: 100%">
+<FONT FACE="TimesNewRoman"><FONT SIZE=2 STYLE="font-size: 14px">Владелец:</FONT></FONT><FONT FACE="Times New Roman, serif"><FONT SIZE=2 STYLE="font-size: 14px">
+</FONT></FONT></FONT><FONT FACE="TimesNewRoman"><FONT SIZE=2 STYLE="font-size: 14px">{{ entity.name }}</FONT></FONT>
+</P>
+</td>
+</tr>
+<tr>
+<td>
+<P LANG="ru-RU" CLASS="western" ALIGN=JUSTIFY STYLE="clear:left;margin-bottom: 0in; line-height: 100%">
+<FONT FACE="TimesNewRoman"><FONT SIZE=2 STYLE="font-size: 14px">ИНН:</FONT></FONT>
+<FONT FACE="Times New Roman, serif"><FONT SIZE=2 STYLE="font-size: 14px">{{ settings.inn }}</FONT></FONT>
+</P>
+</td>
+<td>
+<P LANG="ru-RU" CLASS="western" ALIGN=JUSTIFY STYLE="clear:left;margin-bottom: 0in; line-height: 100%">
+<FONT FACE="TimesNewRoman"><FONT SIZE=2 STYLE="font-size: 14px">Паспорт:</FONT></FONT><FONT FACE="Times New Roman, serif"><FONT SIZE=2 STYLE="font-size: 14px">
+</FONT></FONT><FONT FACE="Times New Roman, serif"><FONT SIZE=2 STYLE="font-size: 14px">77 58 852369</FONT></FONT>
+</P>
+</td>
+</tr>
+<tr>
+<td>
+<P LANG="ru-RU" CLASS="western" ALIGN=JUSTIFY STYLE="clear:left;margin-bottom: 0in; line-height: 100%">
+<FONT FACE="TimesNewRoman"><FONT SIZE=2 STYLE="font-size: 14px">Адрес:</FONT></FONT><FONT FACE="Times New Roman, serif"><FONT SIZE=2 STYLE="font-size: 14px">
+</FONT></FONT><FONT FACE="Times New Roman, serif"><FONT SIZE=2 STYLE="font-size: 14px">{{ settings.address }}</FONT></FONT><FONT SIZE=2 STYLE="font-size: 14px">
+  </FONT>
+  </P>
+  </td>
+  <td>
+  <P LANG="ru-RU" CLASS="western" ALIGN=JUSTIFY STYLE="clear:left;margin-bottom: 0in; line-height: 100%">
+  <FONT FACE="TimesNewRoman"><FONT SIZE=2 STYLE="font-size: 14px">Адрес:</FONT></FONT><FONT FACE="Times New Roman, serif"><FONT SIZE=2 STYLE="font-size: 14px">
+</FONT></FONT><FONT FACE="TimesNewRoman"><FONT SIZE=2 STYLE="font-size: 14px">{{ entity.adress }} </FONT></FONT><FONT FACE="TimesNewRoman"><FONT SIZE=2 STYLE="font-size: 14px">Тел:</FONT></FONT><FONT FACE="Times New Roman, serif"><FONT SIZE=2 STYLE="font-size: 14px">
+</FONT></FONT><FONT FACE="Times New Roman, serif"><FONT SIZE=2 STYLE="font-size: 14px">{{ entity.phone }}</FONT></FONT>
+</P>
+</td>
+</tr>
+<tr>
+<td>
+<P LANG="ru-RU" CLASS="western" ALIGN=JUSTIFY STYLE="clear:left;margin-bottom: 0in; line-height: 100%">
+<FONT FACE="TimesNewRoman"><FONT SIZE=2 STYLE="font-size: 14px">Тел: {{ settings.phone }}</FONT></FONT>
+</P>
+</td>
+<td>
+</td>
+</tr>
+</table>
+<P LANG="ru-RU" CLASS="western" ALIGN=CENTER STYLE="clear:left;margin-bottom: 0in; line-height: 100%;margin-top:5px;">
+<FONT FACE="TimesNewRoman,Bold"><FONT SIZE=2 STYLE="font-size: 14px"><B>ПОДПИСИ
+СТОРОН</B></FONT></FONT></P>
+<P LANG="ru-RU" CLASS="western" ALIGN=JUSTIFY STYLE="margin-bottom: 0in; line-height: 100%">
+<table>
+<tr>
+<td style="width:450px;">
+<FONT FACE="TimesNewRoman"><FONT SIZE=2 STYLE="font-size: 14px">Хранитель
+</FONT></FONT><FONT FACE="Times New Roman, serif"><FONT SIZE=2 STYLE="font-size: 14px">_______________________
+                                                          </FONT></FONT>
+
+</div>
+</td>
+<td>
+                                                          <FONT FACE="TimesNewRoman"><FONT SIZE=2 STYLE="font-size: 14px">Владелец
+</FONT></FONT><FONT FACE="Times New Roman, serif"><FONT SIZE=2 STYLE="font-size: 14px">_______________________</FONT></FONT>
+</td>
+</tr>
+</table>
+</P>
+<P LANG="ru-RU" CLASS="western" ALIGN=JUSTIFY STYLE="clear:left;margin-bottom: 0in; line-height: 100%">
+<BR>
+</P>
+<script type="text/javascript ">
+    $('#total-price').click(
+        function(){
+            $(this).hide();
+            $('#total-price-edit').show();
+//            if ($('#edit-total-price').val() > 0) return;
+//            var sum = $(this).text();
+//            $(this).html('<input type="text" id="edit-total-price" value="' + sum + '" style="width: 50px;"/><input type="button" id="save-total-price" value="сохранить"/>');
+        }
+    );
+    $('#save-total-price').click(
+        function(){
+            $('#total-price').text($('#edit-total-price').val());
+            $('#total-price').show();
+            $('#total-price-edit').hide();
+        }
+    );
+</script>
+</BODY>
+</HTML>

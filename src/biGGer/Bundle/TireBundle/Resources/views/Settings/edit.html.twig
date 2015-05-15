@@ -1,0 +1,17 @@
+{% extends "TireBundle::template.html.twig" %}
+
+{% block body -%}
+<ul class="nav nav-tabs" style="margin-top: 80px;"></ul>
+    <h1>Settings edit</h1>
+
+    {{ form(edit_form) }}
+
+        <ul class="record_actions">
+    <li>
+        <a href="{{ path('settings') }}">
+            Back to the list
+        </a>
+    </li>
+    <li>{{ form(delete_form) }}</li>
+</ul>
+{% endblock %}

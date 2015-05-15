@@ -1,0 +1,48 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+    <h1>Метка</h1>
+
+    <table class="record_properties">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ entity.id }}</td>
+            </tr>
+            <tr>
+                <th>Название</th>
+                <td>{{ entity.name }}</td>
+            </tr>
+            <tr>
+                <th>Описание</th>
+                <td>{{ entity.description }}</td>
+            </tr>
+            <tr>
+                <th>Широта</th>
+                <td>{{ entity.latitude }}</td>
+            </tr>
+            <tr>
+                <th>Долгота</th>
+                <td>{{ entity.longitude }}</td>
+            </tr>
+            <tr>
+                <th>Тип</th>
+                <td>{{ entity.type }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+        <ul class="record_actions">
+    <li>
+        <a href="{{ path('point') }}">
+            Обратно к списку
+        </a>
+    </li>
+    <li>
+        <a href="{{ path('point_edit', { 'id': entity.id }) }}">
+            Редактировать
+        </a>
+    </li>
+    <li>{{ form(delete_form) }}</li>
+</ul>
+{% endblock %}

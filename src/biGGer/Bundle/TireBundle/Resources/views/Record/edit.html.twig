@@ -1,0 +1,274 @@
+{% extends "TireBundle::template.html.twig" %}
+
+{% block body -%}
+<ul class="nav nav-tabs" style="margin-top: 80px;">
+    <li>
+      <a href="/record">Актуальные записи</a> 
+    </li>
+    <li >
+      <a href="/record/all">Все записи</a> 
+    </li>
+    <li class="active">
+      <a href="{{ path('record_new') }}"><strong>Добавить/изменить запись</strong></a> 
+    </li>
+  </ul>
+<p>
+</p>
+
+<form id="form" style="text-align: center; margin-top: 40px;" method="post" action="/record/{{ entity.id }}">
+        <input type="hidden" id="date-interval" value="{{ entity.id }}" />
+        <p class="form-row">
+          <input type="text" class="input-xlarge datepicker" id="date_start" name="date_start" placeholder="Дата начала" value="{{ entity.dateStart|date("d.m.Y") }}" >
+        </p>
+          <div class="input-append form-row">
+          <input type="text" style="width:135px;" class="input-xlarge datepicker" id="date_end" name="date_end" placeholder="Дата окончания" value="{{ entity.dateEnd|date("d.m.Y") }}" >
+              <div class="btn-group">
+              <button class="btn dropdown-toggle" data-toggle="dropdown">
+                Срок хранения
+                <span class="caret"></span>
+              </button>
+              <ul class="dropdown-menu" id="date_end_values">
+                  <li style="cursor: pointer;text-align:left;padding:0 9px;" data-count="1">1 мес.</li>
+                  <li style="cursor: pointer;text-align:left;padding:0 9px;" data-count="6">6 мес.</li>
+                  <li style="cursor: pointer;text-align:left;padding:0 9px;" data-count="12">12 мес.</li>
+              </ul>
+            </div>
+            </div>
+                  <p class="form-row" style="margin-top:10px;">
+          <input type="text" class="input-xlarge" name="name" placeholder="ФИО" value="{{ entity.name }}">
+                    </p>
+        <p class="form-row">
+          <input type="text" class="input-xlarge" name="passport" placeholder="Паспорт" value="{{ entity.passport }}"> 
+        </p>
+        <p class="form-row">
+          <input type="text" class="input-xlarge" name="passport_given" placeholder="Кем выдан паспорт" value="{{ entity.passportGiven }}"> 
+        </p>
+        <p class="form-row">
+          <input type="text" class="input-xlarge datepicker" name="passport_date" placeholder="Дата выдачи" value="{{ entity.passport_date|date("d.m.Y") }}" >
+        </p>
+        <p class="form-row">
+          <input type="text" class="input-xlarge" name="adress" placeholder="Адрес" value="{{ entity.adress }}"> 
+        </p>
+        <p class="form-row">
+          <input type="text" class="input-xlarge" id="phone" name="phone" placeholder="Телефон" value="{{ entity.phone }}" oninput="if ((event.keyCode>47 && event.keyCode<58) || (event.keyCode>95 && event.keyCode<106)) {} else {return false;}">
+        </p>
+          <div class="input-append form-row">
+            <input style="width:175px;" id="manufacturer" class="input-xlarge" name="manufacturer" placeholder="Производитель шин" type="text" value="{{ entity.manufacturer }}" >
+            <div class="btn-group">
+              <button class="btn dropdown-toggle" data-toggle="dropdown">
+                Выбрать
+                <span class="caret"></span>
+              </button>
+              <ul class="dropdown-menu" id="manufacturer_values">
+              {% for manf in manufacturers %}
+                <li data-id="{{ manf.id }}" style="cursor: pointer;text-align:left;padding:0 9px;">{{ manf.name }}</li>
+              {% endfor %}
+              </ul>
+            </div>
+          </div>
+          <br style="clear:both;">
+          <div class="input-append form-row" style="margin-top:10px;">
+            <input style="width:175px;" id="model" class="input-xlarge" name="model" placeholder="Модель шин" type="text" value="{{ entity.model }}" >
+            <div class="btn-group">
+              <button class="btn dropdown-toggle" data-toggle="dropdown" id="model-btn" disabled="">Выбрать <span class="caret"></span></button>
+              <ul class="dropdown-menu" id="model_values">
+              {% for tire in tires %}
+                <li data-manufacturer="{{ tire.manufacturer }}" style="dispay:none;cursor: pointer;text-align:left;padding:0 9px;">{{ tire.name }}</li>
+              {% endfor %}
+              </ul>
+            </div>
+          </div>
+
+          <br style="clear:both;">
+        <p class="form-row">
+          <input type="hidden" name="size" value="">
+          <select style="width: 285px;" class="input-xlarge" name="size" id="size">
+            <option disabled selected>Выберите радиус</option>
+                          <option value="R12" {% if entity.size == "R12" %}selected="selected"{% endif %}>R12</option>
+                          <option value="R13" {% if entity.size == "R13" %}selected="selected"{% endif %}>R13</option>
+                          <option value="R14" {% if entity.size == "R14" %}selected="selected"{% endif %}>R14</option>
+                          <option value="R15" {% if entity.size == "R15" %}selected="selected"{% endif %}>R15</option>
+                          <option value="R16" {% if entity.size == "R16" %}selected="selected"{% endif %}>R16</option>
+                          <option value="R17" {% if entity.size == "R17" %}selected="selected"{% endif %}>R17</option>
+                          <option value="R18" {% if entity.size == "R18" %}selected="selected"{% endif %}>R18</option>
+                          <option value="R19" {% if entity.size == "R19" %}selected="selected"{% endif %}>R19</option>
+                          <option value="R20" {% if entity.size == "R20" %}selected="selected"{% endif %}>R20</option>
+                          <option value="R21" {% if entity.size == "R21" %}selected="selected"{% endif %}>R21</option>
+                          <option value="R22" {% if entity.size == "R22" %}selected="selected"{% endif %}>R22</option>
+                          <option value="R23" {% if entity.size == "R23" %}selected="selected"{% endif %}>R23</option>
+                          <option value="R24" {% if entity.size == "R24" %}selected="selected"{% endif %}>R24</option>
+                      </select>
+                    </p>
+        <p class="form-row">
+          <input type="text" class="input-xlarge" id="count" name="count" placeholder="Кол-во (шт.)" value="{{ entity.quantity }}">
+                    </p>
+        <p class="form-row">
+          <input type="text" class="input-xlarge" name="rack" placeholder="Стеллаж" value="{{ entity.rack }}">
+                    </p>
+        <p class="form-row">
+          <input type="text" class="input-xlarge" name="shelf" placeholder="Полка" value="{{ entity.shelf }}"> 
+        </p>
+        <p class="form-row">
+          <input type="text" class="input-xlarge" name="cell" placeholder="Ячейка" value="{{ entity.cell }}"> 
+        </p>
+        <p class="form-row">
+          <select name="assembly" style="width: 284px;">
+            <option value="Только шины" {% if entity.assembly == "Только шины" %}selected="selected"{% endif %}>Только шины</option>
+            <option value="Колесо в сборе" {% if entity.assembly == "Колесо в сборе" %}selected="selected"{% endif %}>Колесо в сборе</option>
+          </select>
+        </p>
+        <p class="form-row">
+          <select name="category" style="width: 284px;">
+            <option value="На складе" {% if entity.status == "На складе" %}selected="selected"{% endif %}>На складе</option>
+            <option value="Выдано" {% if entity.status == "Выдано" %}selected="selected"{% endif %}>Выдано</option>
+          </select>
+        </p>
+        <p class="form-row">
+          <input type="text" class="input-xlarge" name="price" placeholder="Сумма к оплате (руб.)" value="{{ entity.price }}"> 
+        </p>
+        <p class="form-row">
+          <input type="submit" class="btn " style="width: 260px;" value="Сохранить запись"> 
+        </p>
+      </form>
+</ul>
+<script>
+$(function() {
+  $("#model_values li").click(function() {
+    $("#model")
+      .val($(this).text())
+      .focus();
+  });
+
+  $("#param_values li").click(function() {
+    $("#param")
+      .val($(this).text())
+      .focus();
+  });
+
+  $("#manufacturer_values li").click(function() {
+    $("#manufacturer")
+      .val($(this).text())
+      .focus();
+
+    $('#model-btn').attr('disabled', false);
+    $('#model_values li').hide();
+
+    $('#model_values li[data-manufacturer="' + $(this).data('id') + '"]').show();
+  });
+
+  if ($("#manufacturer").val().length) {
+    $('#manufacturer_values li').each(function() {
+      if ($(this).text() == $("#manufacturer").val()) {
+        $(this).trigger('click');
+      }
+    })
+  }
+
+  $("#count").keyup(calcPrice);
+  $("#size").change(calcPrice);
+  $("#discount").keyup(calcPrice);
+
+  $("#date_end_values li").click(function() {
+    var count = $(this).data('count');
+
+    var from = $("#date_start").val().split(".");
+
+    var date = new Date(from[2], from[1] - 1, from[0]);
+    date.setMonth(date.getMonth() + count);
+    $("#date_end").val(date.format('dd.mm.yyyy'));
+    $('#date-interval').val(count);
+  });
+
+
+  $("#form .form-row input, #form .form-row select").bind('keydown', function(e) {
+    if (e.keyCode == 13) {
+      e.preventDefault();
+
+      $(this).closest('.form-row')
+        .next('.form-row').find('input, select').focus();
+    }
+  });
+
+    $('#date_start').change(
+        function (){
+            var count = parseInt($('#date-interval').val());
+            var from = $("#date_start").val().split(".");
+            var date = new Date(from[2], from[1] - 1, from[0]);
+            date.setMonth(date.getMonth() + count);
+            $("#date_end").val(date.format('dd.mm.yyyy'));
+        }
+    );
+    $('#date_end').change(
+        function (){
+            var from = $("#date_start").val().split(".");
+            var to = $("#date_end").val().split(".");
+            var dateFrom = new Date(from[2], from[1] - 1, from[0]);
+            var dateTo = new Date(to[2], to[1] - 1, to[0]);
+            if (dateFrom.valueOf() > dateTo.valueOf()) {
+                $('#date_end').val('');
+                return false;
+            }
+        }
+    );
+
+    $('#phone').keypress(function(key) {
+
+        if(key.charCode < 48 || key.charCode > 57) return false;
+
+    });
+
+    $('#phone_add').keypress(function(key) {
+
+        if(key.charCode < 48 || key.charCode > 57) return false;
+
+    });
+    $('#param').keypress(function(key) {
+
+        if(key.charCode < 47 || key.charCode > 57 ) return false;
+
+    });
+    $('#count').keypress(function(key) {
+
+        if(key.charCode < 48 || key.charCode > 57) return false;
+
+    });
+    $('#wear').keypress(function(key) {
+
+        if(key.charCode < 48 || key.charCode > 57) return false;
+
+    });
+
+});
+
+var prices = {"id":"264","user_id":"91","months":"1","r12":"500","r13":"500","r14":"530","r15":"530","r16":"550","r17":"550","r18":"600","r19":"600","r20":"650","r21":"650","r22":"700","r23":"1000","r24":"1200"};
+
+function calcPrice() {
+  var discount = parseInt($("#discount").val()),
+    count = parseInt($("#count").val()),
+    size = $("#size").val();
+
+    if ( ! count) {
+      return;
+    }
+
+    if ( ! size) {
+      return;
+    }
+
+    if (typeof prices[size] == 'undefined') {
+      return;
+    }
+
+    var per_month = parseInt(prices[size]);
+
+    $("#price_per_month").text(per_month);
+
+    var total = count * per_month;
+
+    if (discount) {
+      total = (total/100 * (100-discount)).toFixed(2);
+    }
+    $("#total_price").text(total);
+}
+</script>
+{% endblock %}

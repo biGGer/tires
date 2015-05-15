@@ -1,0 +1,33 @@
+{% extends "TireBundle::template.html.twig" %}
+
+{% block body -%}
+<ul class="nav nav-tabs" style="margin-top: 80px;">
+</ul>
+    <h4>Модель</h4>
+
+    <table class="record_properties">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ entity.id }}</td>
+            </tr>
+            <tr>
+                <th>Производитель</th>
+                <td>{{ entity.manufacturer }}</td>
+            </tr>
+            <tr>
+                <th>Марка</th>
+                <td>{{ entity.name }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+        <ul class="record_actions">
+    <li>
+        <a href="{{ path('tire') }}">
+            Обратно к списку
+        </a>
+    </li>
+    <li>{{ form(delete_form) }}</li>
+</ul>
+{% endblock %}

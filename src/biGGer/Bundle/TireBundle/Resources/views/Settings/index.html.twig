@@ -1,0 +1,51 @@
+{% extends "TireBundle::template.html.twig" %}
+
+{% block body -%}
+<ul class="nav nav-tabs" style="margin-top: 80px;"></ul>
+    <h1>Settings list</h1>
+
+    <table class="records_list">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Фирма</th>
+                <th>ИНН</th>
+                <th>Адрес</th>
+                <th>Телефон</th>
+                <th>Факс</th>
+                <th>Доп строка 1</th>
+                <th>Доп строка 2</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for entity in entities %}
+            <tr>
+                <td><a href="{{ path('settings_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+                <td>{{ entity.keeper }}</td>
+                <td>{{ entity.inn }}</td>
+                <td>{{ entity.address }}</td>
+                <td>{{ entity.phone }}</td>
+                <td>{{ entity.fax }}</td>
+                <td>{{ entity.addon1 }}</td>
+                <td>{{ entity.addon2 }}</td>
+                <td>
+                <ul>
+                    <li>
+                        <a href="{{ path('settings_edit', { 'id': entity.id }) }}">Изменить</a>
+                    </li>
+                </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+        <ul>
+        <li>
+            <a href="{{ path('settings_new') }}">
+                Добавить
+            </a>
+        </li>
+    </ul>
+    {% endblock %}

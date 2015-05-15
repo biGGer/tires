@@ -1,0 +1,230 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+	<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=utf-8">
+	<TITLE></TITLE>
+	<META NAME="GENERATOR" CONTENT="LibreOffice 4.0.5.2 (Linux)">
+	<META NAME="AUTHOR" CONTENT="User">
+	<META NAME="CREATED" CONTENT="20130904;16110000">
+	<META NAME="CHANGEDBY" CONTENT="User">
+	<META NAME="CHANGED" CONTENT="20130906;9560000">
+	<STYLE TYPE="text/css">
+	<!--
+		@page { margin-right: 0.39in; margin-top: 0.79in; margin-bottom: 0.79in }
+		P { margin-bottom: 0.08in; direction: ltr; color: #000000; line-height: 115%; widows: 2; orphans: 2 }
+		P.western { font-family: "Calibri", sans-serif; font-size: 13px !important; so-language: ru-RU }
+		P.cjk { font-family: "Times New Roman", serif; font-size: 11pt }
+		P.ctl { font-family: "Times New Roman", serif; font-size: 11pt; so-language: ar-SA }
+	-->
+	</STYLE>
+</HEAD>
+<BODY LANG="en-US" TEXT="#000000" DIR="LTR">
+<style>
+@media print {
+	#print-wrap {
+		display:none;
+	}
+}
+#print {
+	display: inline-block;
+	padding: 4px 12px;
+	margin-bottom: 0;
+	font-size: 14px;
+	line-height: 20px;
+	color: #333333;
+	text-align: center;
+	text-shadow: 0 1px 1px rgba(255, 255, 255, 0.75);
+	vertical-align: middle;
+	cursor: pointer;
+	background-color: #f5f5f5;
+	background-image: -moz-linear-gradient(top, #ffffff, #e6e6e6);
+	background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#ffffff), to(#e6e6e6));
+	background-image: -webkit-linear-gradient(top, #ffffff, #e6e6e6);
+	background-image: -o-linear-gradient(top, #ffffff, #e6e6e6);
+	background-image: linear-gradient(to bottom, #ffffff, #e6e6e6);
+	background-repeat: repeat-x;
+	border: 1px solid #cccccc;
+	border-color: #e6e6e6 #e6e6e6 #bfbfbf;
+	border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+	border-bottom-color: #b3b3b3;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffffff', endColorstr='#ffe6e6e6', GradientType=0);
+	filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
+	-webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
+	-moz-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
+	box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+#print:hover {
+	color: #333333;
+	text-decoration: none;
+	background-position: 0 -15px;
+	-webkit-transition: background-position 0.1s linear;
+	-moz-transition: background-position 0.1s linear;
+	-o-transition: background-position 0.1s linear;
+	transition: background-position 0.1s linear;
+	background-color: #e6e6e6;
+	outline: 0;
+}
+#print i {
+	display: inline-block;
+	height: 25px;
+	width: 34px;
+	background: url(/media/img/print.png) no-repeat;
+}
+#print:hover i {
+	background: url(/media/img/print_hover.png) no-repeat;
+}
+#print span {
+	position:relative;
+	top:-5px;
+}
+</style>
+<script src="/media/js/jquery.min.js"></script>
+<div id="print-wrap">
+<button id="print"><i></i><span>Печать</span></button>
+</div>
+<script>
+$(function() {
+
+	$("#print").click(function() {
+		window.print();
+	});
+})
+</script>
+{% for i in range(1, 2) %}<h1 style="text-align: right;">{{ entity.id }}</h1>
+<P LANG="ru-RU" CLASS="western" STYLE="margin-bottom: 0in; line-height: 60%">
+<FONT FACE="TimesNewRoman,Bold" STYLE="font-size: 16px">АКТ ПРИЕМКИ НА ОТВЕТСТВЕННОЕ ХРАНЕНИЕ К ДОГОВОРУ №{{ entity.id }} от {{ entity.dateStart|date("d-m-Y") }}</FONT>
+</P>
+<P LANG="ru-RU" CLASS="western" STYLE="margin-bottom: 0in; line-height: 60%">
+<BR>
+</P>
+<P LANG="ru-RU" CLASS="western" STYLE="margin-bottom: 0in; line-height: 60%">
+<FONT FACE="TimesNewRoman,Bold"><FONT  STYLE="font-size: 13px">Срок хранения:</FONT></FONT><FONT FACE="TimesNewRoman"><FONT  STYLE="font-size: 13px">
+с </FONT></FONT><FONT FACE="Times New Roman, serif"><FONT  STYLE="font-size: 13px">{{ entity.dateStart|date("d-m-Y") }}</FONT></FONT></FONT><FONT FACE="Times New Roman, serif"><FONT  STYLE="font-size: 13px">
+</FONT></FONT><FONT FACE="TimesNewRoman"><FONT  STYLE="font-size: 13px">по
+</FONT></FONT><FONT FACE="Times New Roman, serif"><FONT  STYLE="font-size: 13px">{{ entity.dateEnd|date("d-m-Y") }}</FONT></FONT></P>
+<P LANG="ru-RU" CLASS="western" STYLE="margin-bottom: 0in; line-height: 60%">
+<BR>
+</P>
+    <table>
+        <tr>
+            <td>
+                <P LANG="ru-RU" CLASS="western" STYLE="margin-bottom: 0in;">
+                    <FONT FACE="TimesNewRoman" STYLE="font-size: 13px">Хранитель: {{ settings.keeper }}</FONT>
+                </P>
+                <P LANG="ru-RU" CLASS="western" STYLE="margin-bottom: 0in;">
+                    <FONT FACE="TimesNewRoman" STYLE="font-size: 13px">ИНН: {{ settings.inn }}</FONT>
+                </P>
+                <P LANG="ru-RU" CLASS="western" STYLE="margin-bottom: 0in;">
+                    <FONT FACE="TimesNewRoman" STYLE="font-size: 13px">Адрес: {{ settings.address }}</FONT>
+                </P>
+                <P LANG="ru-RU" CLASS="western" STYLE="margin-bottom: 0in;">
+                    <FONT FACE="TimesNewRoman" STYLE="font-size: 13px">Тел: {{ settings.phone }}</FONT>
+                </P>
+            </td>
+            <td style="padding-left: 20px;">
+                <P LANG="ru-RU" CLASS="western" STYLE="margin-bottom: 0in;">
+                    <FONT FACE="TimesNewRoman" STYLE="font-size: 13px">Поклажедатель: {{ entity.name }}</FONT>
+                </P>
+                <P LANG="ru-RU" CLASS="western" STYLE="margin-bottom: 0in;">
+                    <FONT FACE="TimesNewRoman" STYLE="font-size: 13px">Паспорт: {{ entity.passport }}</FONT>
+                </P>
+                <P LANG="ru-RU" CLASS="western" STYLE="margin-bottom: 0in;">
+                    <FONT FACE="TimesNewRoman" STYLE="font-size: 13px">Адрес: {{ entity.adress }} Тел: {{ entity.phone }}</FONT>
+                </P>
+            </td>
+        </tr>
+    </table>
+<P LANG="ru-RU" CLASS="western" STYLE="margin-bottom: 0in; line-height: 60%">
+
+</P>
+<P LANG="ru-RU" CLASS="western" STYLE="margin-bottom: 0in; line-height: 60%">
+<CENTER>
+	<TABLE DIR="LTR" WIDTH=671 CELLPADDING=7 CELLSPACING=0>
+		<COL WIDTH=306>
+		<COL WIDTH=52>
+		<COL WIDTH=60>
+		<COL WIDTH=62>
+		<COL WIDTH=81>
+		<TR VALIGN=BOTTOM>
+			<TD WIDTH=306 STYLE="border: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding: 3px;">
+				<P LANG="ru-RU" CLASS="western" STYLE="margin-bottom: 0in">
+                    <FONT FACE="TimesNewRoman" STYLE="font-size: 13px">Предмет хранения</FONT>
+                </P>
+			</TD>
+			<TD WIDTH=52 STYLE="border: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding: 3px;">
+				<P LANG="ru-RU" CLASS="western" STYLE="margin-bottom: 0in">
+                        <FONT FACE="TimesNewRoman" STYLE="font-size: 13px" >Ед. изм.</FONT>
+                </P>
+			</TD>
+			<TD WIDTH=60 STYLE="border: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding: 3px;">
+				<P LANG="ru-RU" CLASS="western" STYLE="margin-bottom: 0in">
+                    <FONT FACE="TimesNewRoman" STYLE="font-size: 13px">Кол-во</FONT>
+                </P>
+			</TD>
+			<TD WIDTH=81 STYLE="border: 1px solid #000000; padding: 3px;">
+				<P LANG="ru-RU" CLASS="western" ALIGN=CENTER STYLE="margin-bottom: 0in">
+				    <FONT FACE="TimesNewRoman" STYLE="font-size: 13px">Сумма руб</FONT>
+                </P>
+			</TD>
+		</TR>
+		<TR VALIGN=BOTTOM>
+			<TD WIDTH=306 STYLE="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding: 3px;">
+				<P LANG="ru-RU" CLASS="western">
+                    <SPAN LANG="en-US">
+                        <FONT FACE="TimesNewRoman" STYLE="font-size: 13px">{{ entity.manufacturer }} {{ entity.model }} {{ entity.size }}, {{ entity.assembly }}.</FONT>
+                    </SPAN>
+                </P>
+			</TD>
+			<TD WIDTH=52 STYLE="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding: 3px;">
+				<P LANG="ru-RU" CLASS="western">
+                        <FONT FACE="TimesNewRoman" STYLE="font-size: 13px">шт.</FONT>
+                </P>
+			</TD>
+			<TD WIDTH=60 STYLE="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding: 3px;">
+				<P LANG="ru-RU" CLASS="western" ALIGN=CENTER>
+                    <FONT FACE="TimesNewRoman" STYLE="font-size: 13px">{{ entity.quantity }}</FONT>
+                </P>
+			</TD>
+			<TD WIDTH=81 STYLE="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding: 0in 0.08in">
+				<P LANG="ru-RU" CLASS="western">
+                    <FONT FACE="TimesNewRoman" STYLE="font-size: 13px">{{ entity.price }}</FONT>
+                </P>
+			</TD>
+		</TR>
+	</TABLE>
+</CENTER><BR>
+
+<P LANG="ru-RU" CLASS="western" STYLE="margin-bottom: 0in; line-height: 60%">
+    <FONT FACE="TimesNewRoman" STYLE="font-size: 13px">Всего к оплате: <span id='total-price' style="cursor: pointer;">{{ entity.price }}</span><span id='total-price-edit' style="display: none;"><input type="text" id="edit-total-price" value="" style="width: 500px;"/><input type="button" id="save-total-price" value="сохранить"/></span></FONT>
+</P>
+<P LANG="ru-RU" CLASS="western" STYLE="margin-bottom: 0in; line-height: 60%">
+    <FONT FACE="TimesNewRoman" STYLE="font-size: 13px">НДС не облагается</FONT>
+</P>
+<P LANG="ru-RU" CLASS="western" STYLE="margin-bottom: 0in; line-height: 60%">
+<BR>
+</P>
+
+<table WIDTH=671>
+    <tr>
+        <td>
+            <P LANG="ru-RU" CLASS="western" STYLE="margin-bottom: 0in; line-height: 60%">
+                <FONT FACE="TimesNewRoman" STYLE="font-size: 13px">Сдал (Владелец) :</FONT>
+                <FONT FACE="Times New Roman, serif"><FONT  STYLE="font-size: 13px">________________</FONT></FONT>
+            </P>
+        </td>
+        <td>
+            <P LANG="ru-RU" CLASS="western" STYLE="margin-bottom: 0in; line-height: 60%">
+                <FONT FACE="TimesNewRoman"><FONT  STYLE="font-size: 13px">Получил (Хранитель)</FONT></FONT>
+                <FONT FACE="Times New Roman, serif"><FONT  STYLE="font-size: 13px">______________</FONT></FONT>
+            </P>
+        </td>
+    </tr>
+</table>
+{% if i == 1 %}<hr>{% endif %}
+{% endfor %}
+</BODY>
+</HTML>

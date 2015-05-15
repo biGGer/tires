@@ -1,0 +1,57 @@
+{% extends "TireBundle::template.html.twig" %}
+
+{% block body -%}
+<ul class="nav nav-tabs" style="margin-top: 80px;"></ul>
+    <h1>Settings</h1>
+
+    <table class="record_properties">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ entity.id }}</td>
+            </tr>
+            <tr>
+                <th>Фирма</th>
+                <td>{{ entity.keeper }}</td>
+            </tr>
+            <tr>
+                <th>ИНН</th>
+                <td>{{ entity.inn }}</td>
+            </tr>
+            <tr>
+                <th>Адрес</th>
+                <td>{{ entity.address }}</td>
+            </tr>
+            <tr>
+                <th>Телефон</th>
+                <td>{{ entity.phone }}</td>
+            </tr>
+            <tr>
+                <th>Факс</th>
+                <td>{{ entity.fax }}</td>
+            </tr>
+            <tr>
+                <th>Доп строка 1</th>
+                <td>{{ entity.addon1 }}</td>
+            </tr>
+            <tr>
+                <th>Доп строка 2</th>
+                <td>{{ entity.addon2 }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+        <ul class="record_actions">
+    <li>
+        <a href="{{ path('settings') }}">
+            Back to the list
+        </a>
+    </li>
+    <li>
+        <a href="{{ path('settings_edit', { 'id': entity.id }) }}">
+            Edit
+        </a>
+    </li>
+    <li>{{ form(delete_form) }}</li>
+</ul>
+{% endblock %}

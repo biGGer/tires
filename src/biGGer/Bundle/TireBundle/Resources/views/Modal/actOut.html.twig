@@ -1,0 +1,203 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+	<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=utf-8">
+	<TITLE></TITLE>
+	<META NAME="GENERATOR" CONTENT="LibreOffice 4.0.5.2 (Linux)">
+	<META NAME="AUTHOR" CONTENT="User">
+	<META NAME="CREATED" CONTENT="20130904;17270000">
+	<META NAME="CHANGEDBY" CONTENT="User">
+	<META NAME="CHANGED" CONTENT="20130906;9430000">
+	<STYLE TYPE="text/css">
+	<!--
+		@page { margin-right: 0.59in; margin-top: 0.79in; margin-bottom: 0.79in }
+		P { margin-bottom: 0.08in; direction: ltr; color: #000000; line-height: 115%; widows: 2; orphans: 2 }
+		P.western { font-family: "Calibri", sans-serif; font-size: 13px; so-language: ru-RU }
+		P.cjk { font-family: "Times New Roman", serif; font-size: 11pt }
+		P.ctl { font-family: "Times New Roman", serif; font-size: 11pt; so-language: ar-SA }
+	-->
+	</STYLE>
+</HEAD>
+<BODY LANG="en-US" TEXT="#000000" DIR="LTR">
+<style>
+@media print {
+	#print-wrap {
+		display:none;
+	}
+}
+#print {
+	display: inline-block;
+	padding: 4px 12px;
+	margin-bottom: 0;
+	font-size: 14px;
+	line-height: 20px;
+	color: #333333;
+	text-align: center;
+	text-shadow: 0 1px 1px rgba(255, 255, 255, 0.75);
+	vertical-align: middle;
+	cursor: pointer;
+	background-color: #f5f5f5;
+	background-image: -moz-linear-gradient(top, #ffffff, #e6e6e6);
+	background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#ffffff), to(#e6e6e6));
+	background-image: -webkit-linear-gradient(top, #ffffff, #e6e6e6);
+	background-image: -o-linear-gradient(top, #ffffff, #e6e6e6);
+	background-image: linear-gradient(to bottom, #ffffff, #e6e6e6);
+	background-repeat: repeat-x;
+	border: 1px solid #cccccc;
+	border-color: #e6e6e6 #e6e6e6 #bfbfbf;
+	border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+	border-bottom-color: #b3b3b3;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffffff', endColorstr='#ffe6e6e6', GradientType=0);
+	filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
+	-webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
+	-moz-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
+	box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+#print:hover {
+	color: #333333;
+	text-decoration: none;
+	background-position: 0 -15px;
+	-webkit-transition: background-position 0.1s linear;
+	-moz-transition: background-position 0.1s linear;
+	-o-transition: background-position 0.1s linear;
+	transition: background-position 0.1s linear;
+	background-color: #e6e6e6;
+	outline: 0;
+}
+#print i {
+	display: inline-block;
+	height: 25px;
+	width: 34px;
+	background: url(/media/img/print.png) no-repeat;
+}
+#print:hover i {
+	background: url(/media/img/print_hover.png) no-repeat;
+}
+#print span {
+	position:relative;
+	top:-5px;
+}
+</style>
+<script src="/media/js/jquery.min.js"></script>
+<div id="print-wrap">
+<button id="print"><i></i><span>Печать</span></button>
+</div>
+<script>
+$(function() {
+
+	$("#print").click(function() {
+		window.print();
+	});
+})
+</script>
+{% for i in range(1, 2) %}<h1 style="text-align: right; margin: 0px;">{{ entity.id }}</h1>
+
+<P LANG="ru-RU" CLASS="western" ALIGN=CENTER STYLE="margin-bottom: 0.14in">
+<FONT FACE="Arial, sans-serif">А К Т № </FONT>
+    <FONT FACE="Arial, sans-serif">{{ entity.id }}</FONT>
+</P>
+
+<P LANG="ru-RU" CLASS="western" ALIGN=CENTER STYLE="margin-bottom: 0.14in">
+    <FONT FACE="Arial, sans-serif">сдачи приемки работ (услуг) ответственного хранения</FONT>
+</P>
+
+<P LANG="ru-RU" CLASS="western" ALIGN=CENTER STYLE="margin-bottom: 0.14in">
+    <FONT FACE="Arial, sans-serif">к договору №{{ entity.id }} от 03.12.2014</FONT>
+</P>
+<P LANG="ru-RU" CLASS="western" STYLE="margin-bottom: 0in; line-height: 100%">
+    <FONT FACE="Arial, sans-serif">Дата {{ entity.dateStart|date("d-m-Y") }} Адрес: {{ settings.address }}</FONT>
+</P>
+
+<P LANG="ru-RU" CLASS="western" STYLE="margin-bottom: 0in; line-height: 100%">
+<FONT FACE="Arial, sans-serif">I. Настоящий Акт
+составлен уполномоченными представителями
+Поклажедателя (Владельца) Суворов Александр Александрович и Хранителя ИП Шиномонтажникв том, что работы (услуги) по Договору №{{ entity.id }} от {{ entity.dateStart|date("d-m-Y") }},
+согласно перечня в п. II, выполнены
+полностью, в срок и с надлежащим качеством.
+Автошины (колеса) переданные
+Хранителю, возвращены в сохранности
+Владельцу со склада Хранителя.
+Стороны претензий не имеют. Полная
+стоимость работ (услуг) составляет:</FONT>
+</P>
+<P LANG="ru-RU" CLASS="western" STYLE="margin-bottom: 0in; line-height: 100%">
+<FONT FACE="Arial, sans-serif">______________________________________________</FONT>
+</P>
+<P LANG="ru-RU" CLASS="western" STYLE="margin-bottom: 0.14in">
+    <FONT FACE="Arial, sans-serif">НДС не облагается</FONT>
+</P>
+<P LANG="ru-RU" CLASS="western" STYLE="margin-bottom: 0.14in">
+    <FONT FACE="Arial, sans-serif">II. Перечень выполненных работ (услуг):</FONT>
+</P>
+<P LANG="ru-RU" CLASS="western" STYLE="margin-bottom: 0.14in"><CENTER>
+	<TABLE DIR="LTR" WIDTH=649 CELLPADDING=7 CELLSPACING=0>
+		<COL WIDTH=302>
+		<COL WIDTH=45>
+		<COL WIDTH=45>
+		<COL WIDTH=45>
+		<COL WIDTH=82>
+		<TR VALIGN=BOTTOM>
+			<TD WIDTH=302 STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0in; padding-bottom: 0in; padding-left: 0.08in; padding-right: 0in">
+				<P LANG="ru-RU" CLASS="western">
+                    <FONT FACE="Arial, sans-serif">Содержание работ (услуги ответственного хранения)</FONT>
+                </P>
+			</TD>
+			<TD WIDTH=45 STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0in; padding-bottom: 0in; padding-left: 0.08in; padding-right: 0in">
+				<P LANG="ru-RU" CLASS="western"><FONT FACE="Arial, sans-serif">Ед. изм.</FONT></P>
+			</TD>
+			<TD WIDTH=45 STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0in; padding-bottom: 0in; padding-left: 0.08in; padding-right: 0in">
+				<P LANG="ru-RU" CLASS="western"><FONT FACE="Arial, sans-serif">Кол-во</FONT></P>
+			</TD>
+			<TD WIDTH=82 STYLE="border: 1px solid #000000; padding: 0in 0.08in">
+				<P LANG="ru-RU" CLASS="western"><FONT FACE="Arial, sans-serif">Стоимость руб</FONT></P>
+			</TD>
+		</TR>
+		<TR VALIGN=BOTTOM>
+			<TD WIDTH=302 STYLE="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0in; padding-bottom: 0in; padding-left: 0.08in; padding-right: 0in">
+				<P CLASS="western">
+                    <FONT FACE="Arial, sans-serif">{{ entity.manufacturer }} {{ entity.model }} {{ entity.size }}. {{ entity.assembly }}</FONT>
+                </P>
+			</TD>
+			<TD WIDTH=45 STYLE="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0in; padding-bottom: 0in; padding-left: 0.08in; padding-right: 0in">
+				<P LANG="ru-RU" CLASS="western">    <FONT FACE="Arial, sans-serif">шт.</FONT></P>
+			</TD>
+			<TD WIDTH=45 STYLE="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0in; padding-bottom: 0in; padding-left: 0.08in; padding-right: 0in">
+				<P LANG="ru-RU" CLASS="western" ALIGN=CENTER><FONT FACE="Arial, sans-serif">{{ entity.quantity }}</FONT></P>
+			</TD>
+			<TD WIDTH=82 STYLE="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding: 0in 0.08in">
+				<P LANG="ru-RU" CLASS="western"><FONT COLOR="#000000">     </FONT><FONT COLOR="#ff0000">
+				</FONT><FONT FACE="Arial, sans-serif"></FONT></P>
+			</TD>
+		</TR>
+	</TABLE>
+</CENTER>
+</P>
+<P LANG="ru-RU" CLASS="western" STYLE="margin-bottom: 0.14in">
+    <FONT FACE="Arial, sans-serif">III. Настоящий акт составлен в двух экземплярах, по одному для каждой из сторон.</FONT>
+</P>
+    <table WIDTH=671>
+        <tr>
+            <td>
+                <FONT FACE="Arial, sans-serif">Поклажедатель </FONT>
+                <P LANG="ru-RU" CLASS="western" STYLE="margin-bottom: 0in; line-height: 60%">
+                    <FONT FACE="Arial, sans-serif">(Владелец или его доверенное лицо) :</FONT>
+                    <FONT FACE="Arial, sans-serif">________________</FONT>
+                </P>
+            </td>
+            <td>
+                <FONT FACE="Arial, sans-serif">&nbsp;</FONT>
+                <P LANG="ru-RU" CLASS="western" STYLE="margin-bottom: 0in; line-height: 60%">
+                    <FONT FACE="Arial, sans-serif">Хранитель</FONT>
+                    <FONT FACE="Arial, sans-serif">______________</FONT>
+                </P>
+            </td>
+        </tr>
+    </table>
+    {% if i == 1 %}<hr>{% endif %}
+{% endfor %}
+</BODY>
+</HTML>

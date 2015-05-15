@@ -1,0 +1,17 @@
+{% extends "TireBundle::template.html.twig" %}
+
+{% block body -%}
+<ul class="nav nav-tabs" style="margin-top: 80px;">
+</ul>
+    <h1>Manufacturer creation</h1>
+
+    {{ form(form) }}
+
+        <ul class="record_actions">
+    <li>
+        <a href="{{ path('manufacturer') }}">
+            Back to the list
+        </a>
+    </li>
+</ul>
+{% endblock %}
